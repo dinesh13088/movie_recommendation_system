@@ -7,7 +7,7 @@ movies_list=movies['title'].values
 similarity=pickle.load(open('similarity.pkl','rb'))
 
 def fetch_poster(movie_id):
-    response =requests.get(f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=cf2d5a06bcf31cb72ec6c589490341cc&language=en-US")
+    response =requests.get(f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=api_key&language=en-US")
     data=response.json()
     poster_path=data['poster_path']
     return "https://image.tmdb.org/t/p/w500/"+poster_path
@@ -41,6 +41,7 @@ if st.button("Recommend"):
         with cols[i]:
             st.text(recommended_movies_title[i])
             st.image(movie_poster[i])
+
 
 
 
